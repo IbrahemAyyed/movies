@@ -1,28 +1,11 @@
-# Movies
+- This is a simple movie library.
+- We used Git, NodeJS, Angular6 and Firebase to compile it.
+- To run it we have to download Git, NodeJS and Angular.
+- I imported bootstrap in index.html and used the theme lumen supported by bootswatch.com.
+- For building it I used most of the functions in services and the others I generated them in their module, then I called them in their corresponding positions. 
+- For navbar I used app-routing, then I called it in app.component.html so that it's displayed in all the pages.
+- For homepage I put some html content in homepage.html and styled it.
+- For movies list I used the form search, form to add, update and delete the data. I listed the data as a table too.
+- For authors I used two functions. The first function is listing which is getMovies and updateMovie to update the movies.
+- For authors I used two functions. The first function is listing which is getMovies and updateMovie to update the movies.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.1.5.
-
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
-# movies
