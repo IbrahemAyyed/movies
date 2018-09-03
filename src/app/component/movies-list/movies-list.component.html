@@ -1,6 +1,6 @@
 <br>
 <form class="form-inline">
-  <input class="form-control" name="searchInput" placeholder="Search" #searchInput = "ngModel" [(ngModel)]="searchText" style= "width:60%">
+  <input class="form-control" name="searchInput" placeholder="Search" #searchInput="ngModel" [(ngModel)]="searchText" style="width:60%">
   <button class="btn btn-outline-primary" (click)="searchText=''">X</button>
 </form>
 <br>
@@ -15,16 +15,16 @@
       <th>Action</th>
     </thead>
     <ng-container *ngFor="let movie of movies">
-        <tr class="table-dark" *ngIf="title(movie) ||director(movie) ||releaseDate(movie) ||type(movie)" >
-          <td>{{movie.title}}</td>
-          <td>{{movie.director}}</td>
-          <td>{{movie.releaseDate | date: 'dd/MM/yyyy'}}</td>
-          <td>{{movie.type}}</td>
-          <td>
-            <button class="btn btn-outline-info" (click)="movieService.populateForm(movie)">Edit</button>
-            <button class="btn btn-outline-danger" (click)="onDelete(movie.$key)">Delete</button>
-          </td>
-        </tr>
+      <tr class="table-dark" *ngIf="title(movie) ||director(movie) ||releaseDate(movie) ||type(movie)">
+        <td>{{movie.title}}</td>
+        <td>{{movie.director}}</td>
+        <td>{{movie.releaseDate | date: 'dd/MM/yyyy'}}</td>
+        <td>{{movie.type}}</td>
+        <td>
+          <button class="btn btn-outline-info" (click)="movieService.populateForm(movie)">Edit</button>
+          <button class="btn btn-outline-danger" (click)="onDelete(movie.$key)">Delete</button>
+        </td>
+      </tr>
     </ng-container>
   </table>
   <div class="alert alert-danger" *ngIf="showDelete">
@@ -39,15 +39,15 @@
 
       <div class="form-group">
         <label>Title</label>
-        <input formControlName="title" class="form-control" [ngClass]="{'is-invalid':submitted && formControls.title.errors}" >
-        <div class= "invald-feedback" *ngIf = "submitted &&formControls.title.errors" >
+        <input formControlName="title" class="form-control" [ngClass]="{'is-invalid':submitted && formControls.title.errors}">
+        <div class="invald-feedback" *ngIf="submitted &&formControls.title.errors">
           This field is required
         </div>
       </div>
 
       <div class="form-group">
         <label>Director</label>
-        <input formControlName="director" class="form-control" [ngClass]="{'is-invalid':submitted && formControls.director.errors}" >
+        <input formControlName="director" class="form-control" [ngClass]="{'is-invalid':submitted && formControls.director.errors}">
         <div class="invald-feedback" *ngIf="submitted &&formControls.director.errors">
           This field is required
         </div>
@@ -55,7 +55,7 @@
 
       <div class="form-group">
         <label>Release Date</label>
-        <input formControlName="releaseDate" type="date" class="form-control" [ngClass]="{'is-invalid':submitted && formControls.releaseDate.errors}" >
+        <input formControlName="releaseDate" type="date" class="form-control" [ngClass]="{'is-invalid':submitted && formControls.releaseDate.errors}">
         <div class="invald-feedback" *ngIf="submitted &&formControls.releaseDate.errors">
           This field is required
         </div>
@@ -63,7 +63,7 @@
 
       <div class="form-group">
         <label>Type</label>
-        <input formControlName="type" class="form-control"  [ngClass]="{'is-invalid':submitted && formControls.type.errors}" >
+        <input formControlName="type" class="form-control" [ngClass]="{'is-invalid':submitted && formControls.type.errors}">
         <div class="invald-feedback" *ngIf="submitted &&formControls.type.errors">
           This field is required
         </div>
@@ -73,10 +73,9 @@
       </div>
     </form>
   </div>
-  </div>
-  <div class="alert alert-success" *ngIf="show">
-    Movie Submitted
-  </div>
-  <div class="col-md-7">
-  </div>
-
+</div>
+<div class="alert alert-success" *ngIf="show">
+  Movie Submitted
+</div>
+<div class="col-md-7">
+</div>

@@ -32,8 +32,8 @@ export class AuthorComponent implements OnInit {
   onSubmit() {
     this.submitted = true;
     if (this.movieService.form.valid) {
-        //update
-        this.movieService.updateMovie(this.movieService.form.value)
+      //update
+      this.movieService.updateMovie(this.movieService.form.value)
       this.show = true;
       setTimeout(() => this.show = false, 3000);
       this.submitted = false;

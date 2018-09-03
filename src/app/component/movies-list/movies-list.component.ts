@@ -8,56 +8,56 @@ import { MovieService } from '../../service/movie.service';
 })
 
 export class MoviesListComponent implements OnInit {
-  submitted:boolean;
-  show:boolean;
-  formControls =this.movieService.form.controls;
+  submitted: boolean;
+  show: boolean;
+  formControls = this.movieService.form.controls;
 
   constructor(public movieService: MovieService) {
   }
 
   movies = [];
-  showDelete:boolean;
+  showDelete: boolean;
   searchText: string = "";
 
   ngOnInit() {
     this.movieService.getMovies().subscribe(
-      list =>{
-        this.movies =list.map(item=>{
+      list => {
+        this.movies = list.map(item => {
           return {
-            $key:item.key,
+            $key: item.key,
             ...item.payload.val()
           };
         });
       });
   }
 
-  onSubmit(){
+  onSubmit() {
     this.submitted = true;
     if (this.movieService.form.valid) {
-      if (this.movieService.form.get('$key').value == null) 
+      if (this.movieService.form.get('$key').value == null)
         //insert
         this.movieService.insertMovies(this.movieService.form.value);
-        else
+      else
         //update
         this.movieService.updateMovie(this.movieService.form.value)
-        this.show =true;
-        setTimeout(()=>this.show=false,3000);
-        this.submitted= false;
-        this.movieService.form.reset();
+      this.show = true;
+      setTimeout(() => this.show = false, 3000);
+      this.submitted = false;
+      this.movieService.form.reset();
+    }
   }
-}
-  
-  onDelete($key){
-    if (confirm("Are you sure you want to Delete This Movie?")){
+
+  onDelete($key) {
+    if (confirm("Are you sure you want to Delete This Movie?")) {
       this.movieService.deleteMovie($key);
       this.showDelete = true;
-      setTimeout(()=>this.showDelete=false,3000);
+      setTimeout(() => this.showDelete = false, 3000);
     }
   }
 
   //this is search
-  title(movie){
-    return  movie.title.toLowerCase().indexOf(this.searchText.toLowerCase()) != -1; 
+  title(movie) {
+    return movie.title.toLowerCase().indexOf(this.searchText.toLowerCase()) != -1;
   }
 
   releaseDate(movie) {

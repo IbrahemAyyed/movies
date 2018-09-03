@@ -9,8 +9,8 @@ import { DatePipe } from '@angular/common';
 
 export class MovieService {
   constructor(public firebase: AngularFireDatabase) { }
-    movieList: AngularFireList<any>;
-  
+  movieList: AngularFireList<any>;
+
   form = new FormGroup({
     $key: new FormControl(null),
     title: new FormControl('', Validators.required),
@@ -19,12 +19,12 @@ export class MovieService {
     type: new FormControl('', Validators.required),
   });
 
-  getMovies(){
+  getMovies() {
     this.movieList = this.firebase.list('movies');
     return this.movieList.snapshotChanges();
   }
 
-  insertMovies(movie){
+  insertMovies(movie) {
     this.movieList.push({
       title: movie.title,
       director: movie.director,
@@ -33,12 +33,12 @@ export class MovieService {
     });
   }
 
-  populateForm(movie){
+  populateForm(movie) {
     this.form.setValue(movie);
   }
 
-  updateMovie(movie){
-    this.movieList.update(movie.$key,{
+  updateMovie(movie) {
+    this.movieList.update(movie.$key, {
       title: movie.title,
       director: movie.director,
       releaseDate: movie.releaseDate,
@@ -46,7 +46,7 @@ export class MovieService {
     });
   }
 
-  deleteMovie($key: string){
+  deleteMovie($key: string) {
     this.movieList.remove($key);
   }
 }

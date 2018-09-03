@@ -22,7 +22,7 @@ export const firebaseConfig = {
   messagingSenderId: "592200208589"
 };
 
-const appRoutes: Routes =[
+const appRoutes: Routes = [
   { path: "", component: HomepageComponent },
   { path: "movies", component: MoviesListComponent },
   { path: 'author', component: AuthorComponent },

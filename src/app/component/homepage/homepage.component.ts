@@ -8,6 +8,6 @@ import { MovieService } from '../../service/movie.service';
 })
 export class HomepageComponent implements OnInit {
   constructor() { }
-  ngOnInit() { 
+  ngOnInit() {
   }
 }
